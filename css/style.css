@@ -817,3 +817,20 @@ section.block { padding: 64px 0; }
  section.block { padding: 44px 0; }
  .pillar, .pillar:first-child, .pillar:last-child { padding: 25px; }
 }
+
+/* 연구 분야 카드 이미지 */
+.pillar .research-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.5 / 1;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f5f7fc;
+  margin-bottom: 20px;
+}
+
+/* 제목과 한글 부제 사이의 불필요한 간격 제거 */
+.pillar h3 {
+  min-height: 0;
+  margin: 0 0 8px;
+}

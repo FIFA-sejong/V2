@@ -668,7 +668,7 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
   height: 420px;
   position: relative;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: 0;
 }
 
 .hero-art img {
@@ -679,25 +679,24 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
   object-fit: cover;
   object-position: 68% center;
 
-  border-radius: 22px;
+  border-radius: 0;
 
   -webkit-mask-image: none !important;
   mask-image: none !important;
 }
 
-/* 왼쪽 경계만 아주 살짝 네이비로 녹이기 */
+/* 이미지 네 방향의 경계를 네이비 배경으로 자연스럽게 녹임 */
 .hero-art::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
 
-  background: linear-gradient(
-    to right,
-    rgba(11, 17, 32, 0.45) 0%,
-    rgba(11, 17, 32, 0.12) 8%,
-    transparent 18%
-  );
+  box-shadow:
+    inset 45px 0 45px -20px rgba(11, 17, 32, 0.9),
+    inset -45px 0 45px -20px rgba(11, 17, 32, 0.9),
+    inset 0 45px 45px -20px rgba(11, 17, 32, 0.9),
+    inset 0 -45px 45px -20px rgba(11, 17, 32, 0.9);
 }
 
 @media (max-width: 900px) {

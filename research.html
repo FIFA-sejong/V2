@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research | FIFA LAB</title>
+<meta name="description" content="FIFA LAB (FinTech Innovation & Forecasting Analytics Lab) — Department of Artificial Intelligence & Data Science, Sejong University" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+/* Page-only styles: no changes to the shared stylesheet required. */
+.research-page { background:#f7f9fd; }
+.research-page .research-intro { background:radial-gradient(ellipse at 85% 0%,#162b50,transparent 65%),#090f1f; color:#fff; padding:64px 0 52px; }
+.research-intro .eyebrow { color:#9eb8ff; margin-bottom:15px; }
+.research-intro h1 { font-size:clamp(2.2rem,4vw,3.5rem); line-height:1.15; letter-spacing:-.04em; margin:0 0 22px; }
+.research-intro p { max-width:740px; margin:0; color:#bbc8dd; font-size:1.0625rem; line-height:1.85; word-break:keep-all; }
+.research-jump { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+.research-jump a { padding:9px 15px; border:1px solid #41516d; border-radius:999px; color:#e4ecff; font-size:.875rem; }
+.research-jump a:hover { background:#203457; }
+.research-detail { padding:64px 0; scroll-margin-top:96px; }
+.research-detail + .research-detail { border-top:1px solid #e0e7f1; }
+.research-detail:nth-of-type(3) { background:#fff; }
+.research-lead { display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; margin-bottom:32px; }
+.research-number { display:block; color:#3c60cd; font-size:.8125rem; font-weight:700; letter-spacing:.12em; margin-bottom:12px; }
+.research-lead h2 { font-family:'Sora','Inter',sans-serif; font-size:clamp(1.5rem,2.5vw,2rem); line-height:1.35; letter-spacing:-.035em; margin:0 0 9px; }
+.research-ko { color:#435779; font-size:.9375rem; font-weight:600; margin:0 0 19px; }
+.research-summary { color:#53637a; font-size:1rem; line-height:1.85; word-break:keep-all; margin:0; }
+.research-figure { margin:0; background:#f2f5fb; border-radius:14px; overflow:hidden; }
+.research-figure img { display:block; width:100%; aspect-ratio:2.5/1; object-fit:contain; }
+.research-questions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.research-question { padding:25px; border:1px solid #e0e7f1; background:#fff; border-radius:12px; min-width:0; }
+.research-question .topic-en { font-size:.8125rem; color:#3d5fb1; font-weight:600; display:block; margin-bottom:10px; }
+.research-question h3 { font-size:1.0625rem; line-height:1.5; margin:0 0 12px; }
+.research-question p { color:#56657b; font-size:1rem; line-height:1.8; word-break:keep-all; margin:0; }
+.research-bottom { margin-top:24px; display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+.research-tags { display:flex; gap:8px; flex-wrap:wrap; }
+.research-tags span { color:#3c5ca3; background:#eaf0fc; padding:5px 10px; border-radius:5px; font-size:.8125rem; }
+.research-related { margin-left:auto; color:#315ee7; font-size:.875rem; font-weight:600; padding:8px 0; }
+.research-related:hover { text-decoration:underline; }
+.research-page .nav-links { gap:4px; }
+@media(max-width:1000px) {
+ .research-page .nav-links a { padding-left:7px; padding-right:7px; }
+ .research-lead { gap:28px; }
+ .research-question { padding:21px; }
+}
+@media(max-width:900px) {
+ .research-questions { grid-template-columns:1fr; }
+}
+@media(max-width:760px) {
+ .research-page .research-intro { padding:42px 0 36px; }
+ .research-detail { padding:42px 0; scroll-margin-top:84px; }
+ .research-lead { grid-template-columns:1fr; gap:24px; }
+ .research-jump { gap:8px; }
+ .research-jump a { font-size:.8125rem; }
+ .research-related { margin-left:0; }
+}
+</style>
+</head>
+<body class="research-page">
+<a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <span class="mark">FIFA</span>
+      <span>FIFA LAB<small>Sejong University</small></span>
+    </a>
+    <ul class="nav-links" id="primary-navigation" aria-label="주요 메뉴">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active" aria-current="page">Research</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="activities.html">Activities</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-controls="primary-navigation" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="main-content">
+<section class="research-intro" aria-labelledby="page-title"><div class="wrap">
+<div class="eyebrow">OUR RESEARCH</div><h1 class="display" id="page-title">Research</h1>
+<p>정교한 예측과 신뢰할 수 있는 AI로, 복잡한 현실의 의사결정 문제를 해결합니다.</p>
+<nav class="research-jump" aria-label="연구 분야 바로가기">
+<a href="#financial-ai">Financial AI &amp; FinTech</a><a href="#trustworthy-ai">Trustworthy AI</a><a href="#physical-ai">Physical &amp; On-Device AI</a>
+</nav></div></section>
+<section class="research-detail" id="financial-ai" aria-labelledby="financial-ai-title"><div class="wrap">
+<div class="research-lead"><div><span class="research-number">RESEARCH / 01</span>
+<h2 id="financial-ai-title">Financial AI &amp; FinTech</h2><p class="research-ko">금융 AI &amp; 핀테크</p><p class="research-summary">금융시장의 복잡한 변동과 데이터의 불확실성을 다루며, 예측 결과를 실제 의사결정으로 연결하는 AI를 연구합니다. 금융 데이터뿐 아니라 수요·운영 데이터로 시계열 예측의 응용 범위를 확장합니다.</p></div>
+<figure class="research-figure"><img src="images/financial-ai.png" data-image-name="financial-ai.png" alt="금융 데이터 분석과 포트폴리오 구성 개념도" loading="lazy" width="2000" height="800"></figure></div>
+<div class="research-questions">
+<article class="research-question"><span class="topic-en">Time Series Forecasting</span><h3>변화하는 시계열의 예측</h3><p>금융시장과 수요 데이터의 시간적 패턴 및 변수 간 관계를 모델링합니다. 변화하는 환경에서 예측의 정확성과 안정성을 높이는 방법을 연구합니다.</p></article>
+<article class="research-question"><span class="topic-en">Fraud Detection & Credit Risk</span><h3>이상거래 탐지와 리스크 평가</h3><p>정상 패턴에서 벗어난 거래와 위험 신호를 포착하고, 신용 및 기업 리스크를 분석합니다. 탐지 성능과 함께 실제 의사결정에 활용할 수 있는 근거를 살펴봅니다.</p></article>
+<article class="research-question"><span class="topic-en">Portfolio Optimization</span><h3>개인화된 투자 의사결정</h3><p>투자자의 위험 성향과 목표, 제약 조건을 반영한 포트폴리오 구성을 연구합니다. LLM을 활용한 의사결정과 성과·위험의 평가 방법을 탐구합니다.</p></article>
+</div><div class="research-bottom"><div class="research-tags"><span>Time Series Forecasting</span><span>Fraud Detection</span><span>Portfolio Optimization</span></div><a class="research-related" href="publications.html">논문 목록 보기 <span aria-hidden="true">→</span></a></div></div></section>
+<section class="research-detail" id="trustworthy-ai" aria-labelledby="trustworthy-ai-title"><div class="wrap">
+<div class="research-lead"><div><span class="research-number">RESEARCH / 02</span>
+<h2 id="trustworthy-ai-title">Trustworthy AI</h2><p class="research-ko">신뢰 가능한 AI</p><p class="research-summary">예측 성능과 함께 AI의 판단 근거, 공정성, 학습 데이터의 영향을 살펴봅니다. 모델을 이해하고 검증하며, 필요한 정보를 선택적으로 제거할 수 있는 신뢰 가능한 AI 방법론을 연구합니다.</p></div>
+<figure class="research-figure"><img src="images/accountable-ai.png" data-image-name="accountable-ai.png" alt="AI의 판단 경로와 근거를 보여주는 개념도" loading="lazy" width="2000" height="800"></figure></div>
+<div class="research-questions">
+<article class="research-question"><span class="topic-en">Machine Unlearning</span><h3>학습 정보의 선택적 제거</h3><p>학습된 모델에서 특정 데이터나 속성의 영향을 제거하는 방법을 연구합니다. 제거 효과, 기존 성능의 유지, 재학습 대비 효율을 함께 평가합니다.</p></article>
+<article class="research-question"><span class="topic-en">Fairness</span><h3>편향 분석과 공정성</h3><p>데이터와 모델에 나타나는 편향을 분석하고, 집단 간 성능 및 의사결정 차이를 평가합니다. 예측 성능과 공정성을 함께 고려하는 모델링 방법을 탐구합니다.</p></article>
+<article class="research-question"><span class="topic-en">Explainable AI</span><h3>판단 근거의 이해와 설명</h3><p>어떤 정보가 예측과 판단에 영향을 미치는지 분석합니다. 모델의 동작을 해석하고, 사용자가 결과를 이해·검토할 수 있도록 설명의 충실성과 유용성을 연구합니다.</p></article>
+</div><div class="research-bottom"><div class="research-tags"><span>Machine Unlearning</span><span>Fairness</span><span>XAI</span></div><a class="research-related" href="publications.html">논문 목록 보기 <span aria-hidden="true">→</span></a></div></div></section>
+<section class="research-detail" id="physical-ai" aria-labelledby="physical-ai-title"><div class="wrap">
+<div class="research-lead"><div><span class="research-number">RESEARCH / 03</span>
+<h2 id="physical-ai-title">Physical &amp; On-Device AI</h2><p class="research-ko">피지컬 &amp; 온디바이스 AI</p><p class="research-summary">LLM/VLM 기반 작업 인지·계획과 모델 경량화를 통해 실제 환경과 제한된 연산 자원에서 동작하는 AI를 연구합니다. 시뮬레이션과 현장 환경을 연결하며 인지부터 작업 실행까지의 과정을 다룹니다.</p></div>
+<figure class="research-figure"><img src="images/physical-ai.png" data-image-name="physical-ai.png" alt="시각 인식으로 물체를 조작하는 협동로봇 개념도" loading="lazy" width="2000" height="800"></figure></div>
+<div class="research-questions">
+<article class="research-question"><span class="topic-en">Task Planning</span><h3>환경 이해와 작업 계획</h3><p>시각·언어 정보를 바탕으로 작업 상황을 이해하고, 목표를 실행 가능한 단계로 분해합니다. 작업 순서와 제약 조건을 고려한 계획 생성 및 실패 시 계획 수정 방법을 연구합니다.</p></article>
+<article class="research-question"><span class="topic-en">Efficient AI</span><h3>경량화와 온디바이스 실행</h3><p>모델 경량화와 추론 최적화를 통해 제한된 메모리·연산 자원에서 AI를 실행하는 방법을 연구합니다. 모델 성능과 지연 시간, 자원 사용량 사이의 균형을 평가합니다.</p></article>
+<article class="research-question"><span class="topic-en">LLM / VLM & Sim2Real</span><h3>멀티모달 AI와 실제 환경 적용</h3><p>LLM/VLM과 시뮬레이션 환경을 결합해 작업 수행 과정을 모델링하고 평가합니다. 시뮬레이션과 실제 환경의 차이를 고려하여 시스템의 적용 가능성과 안정성을 검토합니다.</p></article>
+</div><div class="research-bottom"><div class="research-tags"><span>Task Planning</span><span>Efficient AI</span><span>Sim2Real</span></div><a class="research-related" href="publications.html">논문 목록 보기 <span aria-hidden="true">→</span></a></div></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:#fff;">FIFA LAB</strong> — Dept. of Artificial Intelligence &amp; Data Science, Sejong University<br>
+      Daeyang AI Center, Room 812 · <a href="mailto:yylee93@sejong.ac.kr">yylee93@sejong.ac.kr</a>
+    </div>
+    <div class="foot-links">
+      <a href="team.html">Team</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.querySelectorAll('img[data-image-name]').forEach(img => {
+  let attemptedFallback = false;
+  function fallbackImage() {
+    if (!attemptedFallback) {
+      attemptedFallback = true;
+      img.src = 'image/' + img.dataset.imageName;
+    } else {
+      img.closest('figure').hidden = true;
+      img.closest('.research-lead').style.gridTemplateColumns = '1fr';
+    }
+  }
+  img.addEventListener('error', fallbackImage);
+  if (img.complete && img.naturalWidth === 0) fallbackImage();
+});
+</script>
+</body>
+</html>

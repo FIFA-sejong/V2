@@ -695,19 +695,16 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
   }
 }
 
-/* ===== Hero image 자연스럽게 배경에 녹이기 ===== */
+/* ===== Hero image ===== */
 
 .hero-art {
   flex: 0 0 44%;
   max-width: 44%;
-  height: 460px;
+  height: 420px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow: visible;
-  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
 }
 
 .hero-art img {
@@ -717,22 +714,24 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
   object-fit: cover;
   object-position: 70% center;
 
-  border-radius: 0;
+  border-radius: 18px;
 
-  /* 이미지 사방을 네이비 배경에 자연스럽게 녹임 */
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    black 55%,
-    rgba(0, 0, 0, 0.9) 68%,
-    rgba(0, 0, 0, 0.45) 82%,
-    transparent 100%
-  );
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
 
-  mask-image: radial-gradient(
-    ellipse at center,
-    black 55%,
-    rgba(0, 0, 0, 0.9) 68%,
-    rgba(0, 0, 0, 0.45) 82%,
+/* 이미지 왼쪽 경계만 살짝 배경에 녹임 */
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    rgba(11, 17, 32, 0.75) 0%,
+    rgba(11, 17, 32, 0.25) 8%,
+    transparent 20%,
     transparent 100%
   );
 }

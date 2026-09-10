@@ -1,24 +1,39 @@
-// FIFA LAB — small shared behaviors (no framework, no build step)
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".nav-toggle");
-  const links = document.querySelector(".nav-links");
-
+// Shared navigation; works on local files and GitHub Pages subdirectories.
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  const setOpen = (open) => {
+    if (!toggle || !links) return;
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+  };
   if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      links.classList.toggle("open");
+    toggle.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && links.classList.contains('open')) {
+        setOpen(false);
+        toggle.focus();
+      }
     });
-    links.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => links.classList.remove("open"))
-    );
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.nav')) setOpen(false);
+    });
+    window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
+      if (event.matches) setOpen(false);
+    });
   }
-
-  // Highlight the current page in the nav
-  const path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-links a").forEach((a) => {
-    const href = a.getAttribute("href");
-    if (href === path || (path === "" && href === "index.html")) {
-      a.classList.add("active");
-    }
-  });
+  const updateActive = () => {
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const current = path + (path === 'index.html' && location.hash === '#research' ? '#research' : '');
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      const active = a.getAttribute('href') === current;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', current.includes('#') ? 'location' : 'page');
+      else a.removeAttribute('aria-current');
+    });
+  };
+  updateActive();
+  window.addEventListener('hashchange', updateActive);
 });

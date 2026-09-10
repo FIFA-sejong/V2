@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
 <header class="site-header">
   <div class="wrap nav">
@@ -17,17 +18,19 @@
       <span class="mark">FIFA</span>
       <span>FIFA LAB<small>Sejong University</small></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-navigation" aria-label="주요 메뉴">
       <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#research">Research</a></li>
       <li><a href="team.html">Team</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="activities.html">Activities</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="메뉴 열기"><span></span></button>
+    <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-controls="primary-navigation" aria-expanded="false"><span></span></button>
   </div>
 </header>
 
+<main id="main-content">
 <section class="page-hero">
   <div class="wrap">
     <div class="eyebrow">Lab Activities</div>
@@ -92,6 +95,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div>

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
 <header class="site-header">
   <div class="wrap nav">
@@ -18,59 +19,44 @@
       <span class="mark">FIFA</span>
       <span>FIFA LAB<small>Sejong University</small></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="primary-navigation" aria-label="주요 메뉴">
       <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#research">Research</a></li>
       <li><a href="team.html">Team</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="activities.html">Activities</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" aria-label="메뉴 열기"><span></span></button>
+    <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-controls="primary-navigation" aria-expanded="false"><span></span></button>
   </div>
 </header>
 
-<section class="hero">
+<main id="main-content">
+<section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
-
     <div class="hero-copy">
-      <div class="eyebrow">
-        세종대학교 · 인공지능데이터사이언스학과
-      </div>
-
-      <h1 class="display">FIFA (FinTech Innovation &amp; Forecasting Analytics) LAB</h1>
-
-      <p class="lede">
-        금융 시장을 중심으로 다양한 분야의 데이터를 분석하고, 신뢰할 수 있는 예측 모델과 의사결정 시스템을 연구합니다.
-      </p>
-
-      <div class="hero-meta">
-        <span>🏢 Daeyang AI Center, Room 812</span>
-        <span>🎓 Dept. of Artificial Intelligence &amp; Data Science</span>
-        <span>✉️ yylee93@sejong.ac.kr</span>
-      </div>
-
+      <div class="eyebrow">SEJONG UNIVERSITY</div>
+      <h1 class="display" id="hero-title">FIFA LAB<span class="title-dot">.</span></h1>
+      <p class="hero-fullname">FinTech Innovation &amp;<br>Forecasting Analytics</p>
+      <p class="lede">금융을 중심으로 다양한 분야의 데이터를 분석하고,<br class="desktop-break"> 신뢰할 수 있는 예측 모델과 의사결정 시스템을 연구합니다.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="publications.html">논문 보기 →</a>
-        <a class="btn btn-ghost" href="contact.html">연구실 문의하기</a>
+        <a class="btn btn-primary" href="#research">Explore Research <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="publications.html">Publications <span aria-hidden="true">→</span></a>
       </div>
     </div>
-
-    <div class="hero-art">
-      <img
-        src="images/financial-ai-hero.png"
-        alt="Financial AI and Forecasting Analytics"
-      >
+    <div class="hero-art" aria-hidden="true">
+      <img src="images/financial-ai-hero.png" alt="" fetchpriority="high">
     </div>
-
   </div>
+  <div class="wrap hero-bottom"><span>세종대학교 · 인공지능데이터사이언스학과</span><a href="#research">Discover our research <span aria-hidden="true">↓</span></a></div>
 </section>
 
-<section class="block">
+<section class="block research-section" id="research" aria-labelledby="research-title">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Research</div>
-      <h2 class="display">우리 연구실의 3대 연구 축</h2>
-      <p>금융 AI부터 신뢰가능한 AI, 피지컬 AI까지 — 데이터와 지능형 시스템이 만나는 지점을 탐구합니다.</p>
+      <h2 class="display" id="research-title">Our Research</h2>
+      <p>데이터를 이해하고, 예측을 넘어 의사결정으로 연결합니다.</p>
     </div>
     <div class="pillars">
       <div class="pillar">
@@ -98,11 +84,11 @@
   </div>
 </section>
 
-<section class="block block-alt">
+<section class="block block-alt news-section">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Highlights</div>
-      <h2 class="display">최근 소식</h2>
+      <div class="eyebrow">LATEST UPDATES</div>
+      <h2 class="display">Lab News</h2>
       <p>FIFA LAB의 최근 연구 성과와 활동입니다.</p>
     </div>
     <div class="card-list">
@@ -130,6 +116,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">

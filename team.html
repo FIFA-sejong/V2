@@ -8,6 +8,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
+<style>
+/* This page is self-contained; shared CSS and JS do not need replacement. */
+.team-content.block { padding-top:36px; }
+.team-tabs { display:flex; gap:8px; border-bottom:1px solid var(--line,#e2e5ef); margin:0 0 30px; }
+.team-tab { appearance:none; border:0; border-bottom:3px solid transparent; padding:14px 22px; margin-bottom:-1px; background:transparent; color:var(--ink-soft,#4b5468); font:600 1rem 'Inter',sans-serif; cursor:pointer; }
+.team-tab:hover { color:var(--accent,#315ee7); background:#eef3ff; }
+.team-tab[aria-selected="true"] { color:var(--accent,#315ee7); border-bottom-color:var(--accent,#315ee7); }
+.team-tab:focus-visible { outline:3px solid #789aff; outline-offset:-3px; border-radius:4px; }
+.team-panel[hidden] { display:none !important; }
+.team-panel:focus-visible { outline:2px solid #789aff; outline-offset:6px; }
+.team-panel .members { margin-top:0; }
+.team-panel .member-card { overflow-wrap:anywhere; }
+.team-panel .prof-card { min-width:0; }
+@media(max-width:760px) {
+ .team-content.block { padding-top:24px; }
+ .team-tab { flex:1; padding:14px 16px; }
+ .team-tabs { margin-bottom:24px; }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">본문으로 바로가기</a>
@@ -21,7 +40,7 @@
     <ul class="nav-links" id="primary-navigation" aria-label="주요 메뉴">
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
-      <li><a href="team.html">Our Team</a></li>
+      <li><a href="team.html" class="active" aria-current="page">Our Team</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="projects.html">Projects</a></li>
       <li><a href="activities.html">Activities</a></li>
@@ -40,11 +59,15 @@
   </div>
 </section>
 
-<section class="block">
+<section class="block team-content">
   <div class="wrap">
 
-    <h2 class="display" style="margin:0 0 24px;">Professor</h2>
+    <div class="team-tabs" role="tablist" aria-label="구성원 구분">
+      <button class="team-tab" id="tab-professor" type="button" role="tab" aria-selected="true" aria-controls="panel-professor" tabindex="0">Professor</button>
+      <button class="team-tab" id="tab-students" type="button" role="tab" aria-selected="false" aria-controls="panel-students" tabindex="-1">Students</button>
+    </div>
 
+    <div class="team-panel" id="panel-professor" role="tabpanel" aria-labelledby="tab-professor" tabindex="0">
     <div class="prof-card">
       <div class="prof-photo">이윤영</div>
       <div class="prof-info">
@@ -93,7 +116,9 @@
       </div>
     </div>
 
-   <h2 class="display" style="margin:56px 0 0;">Students</h2>
+    </div><!-- /Professor panel -->
+
+    <div class="team-panel" id="panel-students" role="tabpanel" aria-labelledby="tab-students" tabindex="0" hidden>
 
     <div class="members">
       <div class="member-card">
@@ -122,7 +147,7 @@
       </div>
     </div>
 
-    <p class="note">※ 구성원 정보는 기존 홈페이지 기준으로 작성되었습니다. 최신 상태와 다르면 알려주시면 바로 반영할게요.</p>
+    </div><!-- /Students panel -->
   </div>
 </section>
 
@@ -142,5 +167,32 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(() => {
+  const tabs = Array.from(document.querySelectorAll('.team-tab'));
+  function activateTab(selected) {
+    tabs.forEach(tab => {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+    });
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      activateTab(tabs[next]);
+      tabs[next].focus();
+    });
+  });
+})();
+</script>
 </body>
 </html>

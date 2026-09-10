@@ -694,3 +694,45 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
     height: 360px;
   }
 }
+
+/* ===== Hero image 자연스럽게 배경에 녹이기 ===== */
+
+.hero-art {
+  flex: 0 0 44%;
+  max-width: 44%;
+  height: 460px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+  border-radius: 0;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 70% center;
+
+  border-radius: 0;
+
+  /* 이미지 사방을 네이비 배경에 자연스럽게 녹임 */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 55%,
+    rgba(0, 0, 0, 0.9) 68%,
+    rgba(0, 0, 0, 0.45) 82%,
+    transparent 100%
+  );
+
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 55%,
+    rgba(0, 0, 0, 0.9) 68%,
+    rgba(0, 0, 0, 0.45) 82%,
+    transparent 100%
+  );
+}

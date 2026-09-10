@@ -486,7 +486,7 @@ section.block.tight { padding: 64px 0; }
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: collab-scroll 24s linear infinite;
+  animation: collab-scroll 36s linear infinite;
 }
 .collab-marquee:hover .collab-track { animation-play-state: paused; }
 

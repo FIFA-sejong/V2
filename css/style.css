@@ -645,7 +645,7 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
 .page-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin: 12px 0 10px; letter-spacing: -0.02em; }
 .page-hero p { color: rgba(255,255,255,0.68); max-width: 600px; margin: 0; }
 
-/* ===== FIFA HERO : TEXT LEFT / IMAGE RIGHT ===== */
+/* ===== FIFA HERO : FINAL ===== */
 
 .hero {
   padding: 72px 0;
@@ -654,8 +654,8 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
 .hero .hero-grid {
   max-width: 1280px;
   display: grid;
-  grid-template-columns: 52% 48%;
-  gap: 55px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 60px;
   align-items: center;
 }
 
@@ -664,63 +664,28 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
 }
 
 .hero-art {
-  height: 430px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  border-radius: 24px;
-}
-
-.hero-art img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  /* 원본 그림 왼쪽의 빈 공간을 잘라내고 핵심 그래픽을 보여줌 */
-  object-position: 68% center;
-
-  border-radius: 24px;
-}
-
-/* tablet / mobile */
-@media (max-width: 900px) {
-  .hero .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 38px;
-  }
-
-  .hero-art {
-    height: 360px;
-  }
-}
-
-/* ===== Hero image ===== */
-
-.hero-art {
-  flex: 0 0 44%;
-  max-width: 44%;
   height: 420px;
-
   position: relative;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 22px;
 }
 
 .hero-art img {
   width: 100%;
   height: 100%;
+  display: block;
 
   object-fit: cover;
-  object-position: 70% center;
+  object-position: 68% center;
 
-  border-radius: 18px;
+  border-radius: 22px;
 
   -webkit-mask-image: none !important;
   mask-image: none !important;
 }
 
-/* 이미지 왼쪽 경계만 살짝 배경에 녹임 */
+/* 왼쪽 경계만 아주 살짝 네이비로 녹이기 */
 .hero-art::after {
   content: "";
   position: absolute;
@@ -729,9 +694,19 @@ footer .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
 
   background: linear-gradient(
     to right,
-    rgba(11, 17, 32, 0.75) 0%,
-    rgba(11, 17, 32, 0.25) 8%,
-    transparent 20%,
-    transparent 100%
+    rgba(11, 17, 32, 0.45) 0%,
+    rgba(11, 17, 32, 0.12) 8%,
+    transparent 18%
   );
+}
+
+@media (max-width: 900px) {
+  .hero .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-art {
+    height: 360px;
+  }
 }

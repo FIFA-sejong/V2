@@ -488,7 +488,6 @@ section.block.tight { padding: 64px 0; }
   width: max-content;
   animation: collab-scroll 36s linear infinite;
 }
-.collab-marquee:hover .collab-track { animation-play-state: paused; }
 
 @keyframes collab-scroll {
   from { transform: translateX(0); }
@@ -978,49 +977,53 @@ section.block { padding: 64px 0; }
   color: var(--accent);
 }
 
-/* ===== Collaborators : mobile horizontal swipe ===== */
+/* ===== Collaborators : mobile auto scroll ===== */
 
 @media (max-width: 760px) {
 
   .collab-marquee {
-    overflow-x: auto;
-    overflow-y: hidden;
+    width: 100%;
+    overflow: hidden;
 
-    /* 모바일에서는 양옆 fade 제거 */
-    -webkit-mask-image: none;
-    mask-image: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
 
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-
-    margin-left: -24px;
-    margin-right: -24px;
-    padding: 0 24px 14px;
-  }
-
-  .collab-marquee::-webkit-scrollbar {
-    display: none;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
   }
 
   .collab-track {
     display: flex;
     flex-wrap: nowrap;
-    gap: 14px;
 
     width: max-content;
+    gap: 14px;
 
-    /* 모바일에서는 자동 이동 끄고 손가락으로 넘김 */
-    animation: none;
+    animation: collab-scroll 28s linear infinite;
+    animation-play-state: running;
+
+    will-change: transform;
   }
 
   .collab-item {
-    flex: 0 0 190px;
-    width: 190px;
+    flex: 0 0 180px;
+    width: 180px;
+    padding: 24px 14px;
   }
 
-  .collab-mark,
   .collab-logo {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
   }
 }
+

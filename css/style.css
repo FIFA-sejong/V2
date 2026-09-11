@@ -1027,3 +1027,54 @@ section.block { padding: 64px 0; }
   }
 }
 
+/* =================================================
+   Collaborators mobile marquee - FINAL OVERRIDE
+   ================================================= */
+
+@keyframes collab-mobile-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 760px) {
+
+  .collab-marquee {
+    width: 100% !important;
+    overflow: hidden !important;
+
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .collab-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+
+    width: max-content !important;
+    gap: 14px !important;
+
+    animation-name: collab-mobile-scroll !important;
+    animation-duration: 22s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+
+    will-change: transform;
+  }
+
+  .collab-item {
+    flex: 0 0 180px !important;
+    width: 180px !important;
+    padding: 24px 14px !important;
+  }
+
+  .collab-logo {
+    width: 85px !important;
+    height: 85px !important;
+  }
+}

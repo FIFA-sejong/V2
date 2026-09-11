@@ -896,3 +896,84 @@ section.block { padding: 64px 0; }
   min-height: 0;
   margin: 0 0 8px;
 }
+
+/* ===== Member profile cards ===== */
+
+.member-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+  text-align: left;
+}
+
+.member-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+/* 학생 사진 */
+.member-photo {
+  width: 110px;
+  height: 135px;
+  flex: 0 0 110px;
+
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--paper-alt);
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* 학생 기본 정보 */
+.member-main {
+  padding-top: 3px;
+}
+
+.member-main .badge {
+  display: inline-block;
+  margin-bottom: 13px;
+}
+
+.member-main h4 {
+  margin: 0 0 3px;
+  font-size: 1.18rem;
+}
+
+.member-main .en {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.member-main .since {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: #8b94a6;
+}
+
+/* 연구분야 + 이메일 */
+.member-bottom {
+  margin-top: 22px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.member-bottom .research {
+  margin: 0 0 9px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.member-bottom a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+}

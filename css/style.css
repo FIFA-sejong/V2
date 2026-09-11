@@ -1,5 +1,7 @@
 /* ==========================================================================
-   FIFA LAB — shared styles
+   FIFA LAB — cleaned shared styles
+   - collaborator marquee works on desktop and mobile
+   - duplicate/conflicting marquee rules removed
    ========================================================================== */
 
 :root {
@@ -477,29 +479,28 @@ section.block.tight { padding: 64px 0; }
 .subgroup-sub { color: var(--ink-soft); font-size: 0.88rem; margin: 0 0 4px; }
 
 .collab-marquee {
+  width: 100%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
 
 .collab-track {
   display: flex;
+  flex-wrap: nowrap;
   gap: 20px;
   width: max-content;
   animation: collab-scroll 36s linear infinite;
+  will-change: transform;
 }
 
 @keyframes collab-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .collab-track { animation: none; }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 .collab-item {
-  flex: none;
+  flex: 0 0 220px;
   width: 220px;
   display: flex;
   flex-direction: column;
@@ -512,11 +513,19 @@ section.block.tight { padding: 64px 0; }
   text-align: center;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
-.collab-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 
-.collab-mark {
+.collab-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.collab-mark,
+.collab-logo {
   width: 110px;
   height: 110px;
+}
+
+.collab-mark {
   border-radius: 50%;
   background: var(--paper-alt);
   border: 1px solid var(--line);
@@ -528,13 +537,41 @@ section.block.tight { padding: 64px 0; }
   font-size: 0.9rem;
   color: var(--ink-soft);
 }
-.collab-item span { font-size: 0.86rem; font-weight: 600; color: var(--ink); }
 
 .collab-logo {
-  width: 110px;
-  height: 110px;
   object-fit: contain;
 }
+
+.collab-item span {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .collab-marquee {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  }
+
+  .collab-track {
+    gap: 14px;
+    animation-duration: 28s;
+  }
+
+  .collab-item {
+    flex-basis: 180px;
+    width: 180px;
+    padding: 24px 14px;
+  }
+
+  .collab-mark,
+  .collab-logo {
+    width: 85px;
+    height: 85px;
+  }
+}
+
 
 
 /* ---------- Publications ---------- */
@@ -805,8 +842,8 @@ footer { padding: 42px 0; background: #081323; font-size: .875rem; line-height: 
  footer .wrap { flex-direction: column; align-items: flex-start; gap: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
- html { scroll-behavior: auto; }
- *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }
 
 /* Home revision: stronger artwork, a compact title group, restored cards. */
@@ -975,106 +1012,4 @@ section.block { padding: 64px 0; }
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--accent);
-}
-
-/* ===== Collaborators : mobile auto scroll ===== */
-
-@media (max-width: 760px) {
-
-  .collab-marquee {
-    width: 100%;
-    overflow: hidden;
-
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 5%,
-      black 95%,
-      transparent 100%
-    );
-
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 5%,
-      black 95%,
-      transparent 100%
-    );
-  }
-
-  .collab-track {
-    display: flex;
-    flex-wrap: nowrap;
-
-    width: max-content;
-    gap: 14px;
-
-    animation: collab-scroll 28s linear infinite;
-    animation-play-state: running;
-
-    will-change: transform;
-  }
-
-  .collab-item {
-    flex: 0 0 180px;
-    width: 180px;
-    padding: 24px 14px;
-  }
-
-  .collab-logo {
-    width: 85px;
-    height: 85px;
-  }
-}
-
-/* =================================================
-   Collaborators mobile marquee - FINAL OVERRIDE
-   ================================================= */
-
-@keyframes collab-mobile-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@media (max-width: 760px) {
-
-  .collab-marquee {
-    width: 100% !important;
-    overflow: hidden !important;
-
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-  }
-
-  .collab-track {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-
-    width: max-content !important;
-    gap: 14px !important;
-
-    animation-name: collab-mobile-scroll !important;
-    animation-duration: 22s !important;
-    animation-timing-function: linear !important;
-    animation-iteration-count: infinite !important;
-    animation-play-state: running !important;
-
-    will-change: transform;
-  }
-
-  .collab-item {
-    flex: 0 0 180px !important;
-    width: 180px !important;
-    padding: 24px 14px !important;
-  }
-
-  .collab-logo {
-    width: 85px !important;
-    height: 85px !important;
-  }
 }
